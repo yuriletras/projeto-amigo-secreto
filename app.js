@@ -6,7 +6,7 @@ botaoAdicionar.addEventListener('click', adicionarAmigo);
 function adicionarAmigo() {
     const nome = document.getElementById("amigo").value;
     if (nome === "") {
-        alert("Digite um nome válido!");
+        alert("Digite um nome válido!!");
         return;
     }
     nomes.push(nome);
