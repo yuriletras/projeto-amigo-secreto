@@ -4,12 +4,21 @@ const botaoAdicionar = document.querySelector('.button-add');
 botaoAdicionar.addEventListener('click', adicionarAmigo);
 
 function adicionarAmigo() {
-    const nome = document.getElementById("amigo").value;
-    if (nome === "") {
-        alert("Digite um nome válido!!");
+    const nomeLocal = document.getElementById("amigo").value;
+    if (nomeLocal === "") {
+        alert("Por favor, siga digitando um nome válido!");
         return;
     }
-    nomes.push(nome);
+        const regex = /^[a-zA-Z\s]+$/;
+        if (!regex.test(nomeLocal)) {
+            alert("Digite um nome válido (apenas letras e espaços)");
+            return;
+    }
+        if (nomes.includes(nomeLocal)) {
+            alert("Este nome já foi adicionado. Digite outro nome.");
+            return;
+    }
+    nomes.push(nomeLocal);
     atualizarLista();
     document.getElementById("amigo").value = "";
 }
